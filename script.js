@@ -14,7 +14,7 @@ function findWeather(event) {
     form.reset();
 
     //Get weather url link
-    const weatherUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
+    const weatherUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
 
     fetch(weatherUrl)
         .then((response) => {
@@ -101,7 +101,7 @@ function openWeatherMap(data) {
             forecastContainer.innerHTML = "<h3> Temperature forecast</h3>";
             forecastDtataList.forEach((forecast, index) => {
                 const hour = forecastIntervals[index];
-                const iconUrl = `http://openweathermap.org/img/w/${forecast.iconCode}.png`;
+                const iconUrl = `https://openweathermap.org/img/w/${forecast.iconCode}.png`;
                 forecastContainer.innerHTML += `<div class ="hourlyForecast">
             <p>Temperature in ${city} after ${hour} hours: ${forecast.temperature}°C </p>
             <img src="${iconUrl}" alt="Weather Icon"> </div>`;

@@ -18,12 +18,16 @@ form{
 
 input {
     padding: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
 button{
     padding: 10px 20px;
     background-color: #3366cc;
     color: white;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
 }
@@ -66,4 +70,7 @@ p{
     display: block;
     margin: 30px auto;
     width: 100px;
+}
+.hourlyForecast{
+    font-weight: bold;
 }

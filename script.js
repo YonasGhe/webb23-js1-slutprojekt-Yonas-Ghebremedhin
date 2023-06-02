@@ -1,7 +1,7 @@
 const apiKey = "78a99f0ea4a259da90f9dda6a811ec3e";
 
 let city = "";
-let errorH4 = document.querySelector("h4");
+let errorMessage = document.querySelector("h4");
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
@@ -32,7 +32,7 @@ function findWeather(event) {
 //Display weather direction
 function displayWeather(position) {
     if (!position || !position[0] || !position[0].lat || !position[0].lon) {
-        errorH4.innerText = "Invalid position data!";
+        errorMessage.innerText = "Invalid position data!";
         return;
       }
     
@@ -116,6 +116,6 @@ function openWeatherMap(data) {
 function handleError(error) {
     console.log(error);
 
-    errorH4.innerText = error;
+    errorMessage.innerText = error;
 
 }

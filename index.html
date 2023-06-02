@@ -5,11 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <script src="js/script.js" defer></script>
-
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  
+    <div class="container"> 
+    <h1>Weather App</h1>
+   <form>
+    <input type="text" placeholder="Enter city" required>
+    <button id="submit">Get Weather</button>
+   </form> 
+   <div class="weatherContainer"> 
+   <h4 id="errorMessage"></h4>
+   <p></p>
+  <div id="weatherData"></div>
+  <div class="forecastData"></div>
+</div>
+</div>
 </body>
 </html>

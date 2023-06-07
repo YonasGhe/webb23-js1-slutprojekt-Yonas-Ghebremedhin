@@ -140,7 +140,7 @@ function displayForecast(event) {
                 forecastItem.classList.add("forecastItem");
                 forecastItem.innerHTML = `
               <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon">
-             <p>Temperature in ${i + 1} hours: ${temperature}°C</p>`;
+             <p>Temperature in ${i + 3} hours: ${temperature}°C</p>`;
              forecast.appendChild(forecastItem);
             }
         }

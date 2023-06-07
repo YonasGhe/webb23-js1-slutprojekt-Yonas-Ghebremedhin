@@ -1,7 +1,7 @@
 const apiKey = "78a99f0ea4a259da90f9dda6a811ec3e";
 
 let city = "";
-let errorMessage = document.querySelector("h4");
+let errorMessage = document.querySelector("h5");
 
 const form = document.querySelector("form");
 const input = document.querySelector("input");
@@ -62,7 +62,9 @@ function openWeatherMap(data) {
     const iconCode = data.weather[0].icon;
 
     const weatherData = document.querySelector("#weatherData");
-    weatherData.innerHTML = `<h2> Weather Information </h2> Temperature in ${city} is: ${temperature}°C<br>Wind speed in ${city} is: ${windSpeed} m/s`;
+    weatherData.innerHTML = `<h2> Current Weather</h2> 
+    <h4>Temperature in ${city} is: ${temperature}°C</h4>
+    <h4>Wind speed in ${city} is: ${windSpeed} m/s</h4>`;
 
     //Icon url link
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
@@ -103,8 +105,9 @@ function openWeatherMap(data) {
                 const hour = forecastIntervals[index];
                 const iconUrl = `https://openweathermap.org/img/w/${forecast.iconCode}.png`;
                 forecastContainer.innerHTML += `<div class ="hourlyForecast">
-            <p>Temperature in ${city} after ${hour} hours: ${forecast.temperature}°C </p>
-            <img src="${iconUrl}" alt="Weather Icon"> </div>`;
+            <p>Temperature in ${city} in ${hour} hours: ${forecast.temperature}°C </p>
+            <img src="${iconUrl}" alt="Weather Icon">
+             </div>`;
 
             });
 

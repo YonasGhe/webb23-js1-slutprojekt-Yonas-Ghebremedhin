@@ -116,13 +116,15 @@ function displayForecast(event) {
                 return timeDifference >= 0 && timeDifference < hours;
             });
 
-            const filteredTemperatures = {};
+            //const filteredTemperatures = {};
 
             forecastFilter.forEach((item)=>{ 
                 const temperature = item.main.temp;
                 const iconCode = item.weather[0].icon;
-                const itemHours = Math.floor((new Date(item.dt_txt).getTime() - time )/(1000 * 60 * 60));
-
+                const itemHours = Math.floor(
+                    (new Date(item.dt_txt).getTime() - time )/(1000 * 60 * 60)
+                    );
+/*
                 if(!filteredTemperatures[itemHours]){
                     filteredTemperatures[itemHours] = {  
                         temperature,
@@ -135,15 +137,15 @@ function displayForecast(event) {
                 if(filteredTemperatures[i]){ 
                 const temperature = filteredTemperatures[i].temperature;
                 const iconCode = filteredTemperatures[i].iconCode;
-
+*/
                 const forecastItem = document.createElement("div");
                 forecastItem.classList.add("forecastItem");
                 forecastItem.innerHTML = `
               <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon">
-             <p>Temperature in ${i + 3} hours: ${temperature}°C</p>`;
+             <p>Temperature in ${itemHours + 1} hours: ${temperature}°C</p>`;
              forecast.appendChild(forecastItem);
-            }
-        }
+            
+            });
         })
         .catch (handleError);
 }

@@ -117,8 +117,6 @@ function displayForecast(event) {
                 return timeDifference >= 0 && timeDifference < hours;
             });
 
-            //const filteredTemperatures = {};
-
             forecastFilter.forEach((item)=>{ 
                 const temperature = item.main.temp;
                 const iconCode = item.weather[0].icon;

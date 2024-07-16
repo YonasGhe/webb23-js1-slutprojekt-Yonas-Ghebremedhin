@@ -102,38 +102,35 @@ function displayForecast(event) {
                 throw new Error("Failed to fetch forecast data.");
             }
         })
+ 
         .then((forecastData) => {
-            const forecast = document.querySelector("#result");
-            forecast.innerHTML = "";
+            console.log("Forecast data received:", forecastData);
+            const forecastResult = document.getElementById("result");
+            forecastResult.innerHTML = `<h3>${hours} hours forecast in ${city}</h3>`;
 
-            forecast.innerHTML = `<h3>${hours} hours forecast in ${city}</h3>`;
+            const currentTime = new Date().getTime();
 
-            const time = new Date().getTime();
+            const filteredForecast = forecastData.list.filter((item) => {
+                const itemTime = new Date(item.dt * 1000).getTime();
+                const hoursDifference = (itemTime - currentTime) / (1000 * 60 * 60);
 
-            const forecastFilter = forecastData.list.filter((item) =>{
-                const itemTime = new Date(item.dt_txt).getTime();
-                const timeDifference = (itemTime - time) / (1000 * 60 * 60);
-                
-                return timeDifference >= 0 && timeDifference < hours;
+                return hoursDifference >= 0 && hoursDifference < hours;
             });
 
-            forecastFilter.forEach((item)=>{ 
+            filteredForecast.forEach((item) => {
                 const temperature = item.main.temp;
                 const iconCode = item.weather[0].icon;
-                const itemHours = Math.floor(
-                    (new Date(item.dt_txt).getTime() - time )/(1000 * 60 * 60)
-                    );
+                const forecastTime = new Date(item.dt * 1000).toLocaleTimeString("en-US", { hour: "numeric", hour12: true });
 
                 const forecastItem = document.createElement("div");
                 forecastItem.classList.add("forecastItem");
                 forecastItem.innerHTML = `
-              <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon">
-             <p>Temperature in ${itemHours + 2} hours: ${temperature}°C</p>`;
-             forecast.appendChild(forecastItem);
-            
+                    <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon">
+                    <p>Temperature at ${forecastTime}: ${temperature}°C</p>`;
+                forecastResult.appendChild(forecastItem);
             });
         })
-        .catch (handleError);
+        .catch(handleError);
 }
 
 function resetForecast() {

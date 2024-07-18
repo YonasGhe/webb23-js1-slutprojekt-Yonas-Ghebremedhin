@@ -30,15 +30,15 @@ form {
 }
 
 input {
-    padding: 12px; 
+    padding: 10px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    margin-right: 5px;
+    margin: auto;
 }
 
 button {
-    padding: 12px 20px;
+    padding: 8px 8px;
     background-color: #3366cc;
     color: white;
     border-radius: 4px;
@@ -70,7 +70,6 @@ button {
     margin: 2rem;
     padding: 20px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
     width: 100%;
     max-width: 400px;
 }
@@ -105,10 +104,6 @@ button {
     margin-left: auto;
 }
 
-.forecast {
-    margin-top: 20px;
-    text-align: center;
-}
 
 #forecastResult {
     margin-top: 20px;

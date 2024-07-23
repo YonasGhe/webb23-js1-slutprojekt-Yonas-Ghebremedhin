@@ -30,7 +30,7 @@ form {
 }
 
 input {
-    padding: 12px; 
+    padding: 12px 10px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
@@ -38,7 +38,7 @@ input {
 }
 
 button {
-    padding: 10px 8px;
+    padding: 10px 10px;
     background-color: #3366cc;
     color: white;
     border-radius: 4px;
@@ -48,7 +48,7 @@ button {
 
 #forecastHoursInput {
     width: 150px;
-    padding: 12px;
+    padding: 16px;
     border: 1px solid #ccc;
     font-size: 14px;
     margin-top: 10px;
